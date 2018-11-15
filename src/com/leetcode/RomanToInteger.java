@@ -21,7 +21,6 @@ public class RomanToInteger {
             if (aChar == 'D') sum += 500;
             if (aChar == 'M') sum += 1000;
         }
-
         return sum;
     }
 
