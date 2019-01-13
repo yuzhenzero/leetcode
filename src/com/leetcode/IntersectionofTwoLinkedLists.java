@@ -1,5 +1,7 @@
 package com.leetcode;
 
+// 160#, Easy
+
 public class IntersectionofTwoLinkedLists {
     public ListNode getIntersectionNode (ListNode headA, ListNode headB) {
         if (headA == null || headB == null) return null;
