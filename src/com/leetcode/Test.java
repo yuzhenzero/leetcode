@@ -4,12 +4,22 @@ package com.leetcode;
 import java.util.Arrays;
 
 public class Test {
-    public static void main(String[] args)
-    {
-        int[] a = new int[] {3,9,20,2,1,15,7};
-        String line = Arrays.toString(a);
-        TreeNode root = TreeNodeWrapper.stringToTreeNode(line);
-        TreeNodeWrapper.prettyPrintTree(root);
+    private void problem (String str, int n, int m) {
+        boolean[] vis = new boolean[25];
+        Arrays.fill(vis,false);
+        for (int i = 0, j = -1; i < n; i++) {
+            for (int p = 0; p < m; p++) {
+                while (vis[(++j) % n]) ;
+            }
+            System.out.printf("%c", str.charAt(j % n));
+            vis[j % n] = true;
+        }
+    }
+
+    public static void main (String[] args) {
+        String flag = "gmiaibnutt";
+        Test test = new Test();
+        test.problem(flag, 10, 2);
     }
 
 }
