@@ -21,6 +21,19 @@ public class SortColors {
         sort(nums, right + 1, hi);
     }
 
+    public void sortColors2 (int[] nums) {
+        int zero = -1, one = 0, two = nums.length;
+        while (one < two) {
+            if (nums[one] == 0) {
+                exch(nums, ++zero, one++);
+            } else if (nums[one] == 2) {
+                exch(nums, one, --two);
+            } else {
+                ++one;
+            }
+        }
+    }
+
     private static void exch (int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
@@ -29,7 +42,7 @@ public class SortColors {
 
     public static void main (String[] args) {
         SortColors sc = new SortColors();
-        int[] nums = {2,0,2,1,1,0};
+        int[] nums = {2, 0, 2, 1, 1, 0};
         sc.sortColors(nums);
         System.out.println(Arrays.toString(nums));
     }
