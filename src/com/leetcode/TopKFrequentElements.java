@@ -8,13 +8,13 @@ import java.util.Map;
 // 347#, Medium
 public class TopKFrequentElements {
     public List<Integer> topKFrequent (int[] nums, int k) {
-        List<Integer>[] bucket = new List[nums.length + 1];
-        Map<Integer, Integer> frequencyMap = new HashMap<Integer, Integer>();
 
+        Map<Integer, Integer> frequencyMap = new HashMap<Integer, Integer>();
         for (int num : nums) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
 
+        List<Integer>[] bucket = new List[nums.length + 1];
         for (Integer key : frequencyMap.keySet()) {
             int freq = frequencyMap.get(key);
             if (bucket[freq] == null) {
