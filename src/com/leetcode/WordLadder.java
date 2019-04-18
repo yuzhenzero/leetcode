@@ -12,7 +12,7 @@ public class WordLadder {
         while (end < N && !wordList.get(end).equals(endWord)) {
             end++;
         }
-        if (end == N) // 字典中不存在目标词
+        if (end == N)  // 如果目标不在字典里
             return 0;
         List<Integer>[] graphic = buildGraphic(wordList);
         return getShortestPath(graphic,start,end);
