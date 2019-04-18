@@ -28,7 +28,8 @@ public class FriendCircles {
 
     public static void main (String[] args) {
         FriendCircles fc = new FriendCircles();
-        int[][] M = {{1, 1, 0},
+        int[][] M = {
+                {1, 1, 0},
                 {1, 1, 0},
                 {0, 0, 1}};
         System.out.println(fc.findCircleNum(M));

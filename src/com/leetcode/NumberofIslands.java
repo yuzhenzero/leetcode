@@ -2,7 +2,8 @@ package com.leetcode;
 
 // 200#, Medium
 public class NumberofIslands {
-    private int[][] direction ={{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    private int[][] direction = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
     public int numIslands (char[][] grid) {
         int m = grid.length;
         if (m == 0) return 0;
@@ -30,11 +31,11 @@ public class NumberofIslands {
 
     public static void main (String[] args) {
         NumberofIslands ni = new NumberofIslands();
-        char[][] grid =
-                {{'1', '1', '1', '1', '0'},
-                        {'1', '1', '0', '1', '0'},
-                        {'1', '1', '0', '0', '0'},
-                        {'0', '0', '0', '0', '1'}};
+        char[][] grid = {
+                {'1', '1', '1', '1', '0'},
+                {'1', '1', '0', '1', '0'},
+                {'1', '1', '0', '0', '0'},
+                {'0', '0', '0', '0', '1'}};
         System.out.println(ni.numIslands(grid));
     }
 }

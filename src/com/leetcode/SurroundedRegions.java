@@ -26,7 +26,7 @@ public class SurroundedRegions {
             for (int j = 0; j < n; j++) {
                 if (board[i][j] == 'T') {
                     board[i][j] = 'O';
-                } else if (board[i][j] == 'O'){
+                } else if (board[i][j] == 'O') {
                     board[i][j] = 'X';
                 }
             }
@@ -45,8 +45,8 @@ public class SurroundedRegions {
 
     public static void main (String[] args) {
         SurroundedRegions sr = new SurroundedRegions();
-        char[][] board =
-               {{'X', 'X', 'X', 'X'},
+        char[][] board = {
+                {'X', 'X', 'X', 'X'},
                 {'X', 'O', 'O', 'X'},
                 {'X', 'X', 'O', 'X'},
                 {'X', 'O', 'X', 'X'}};
