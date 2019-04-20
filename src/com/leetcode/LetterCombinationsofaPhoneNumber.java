@@ -10,23 +10,22 @@ public class LetterCombinationsofaPhoneNumber {
 
     public List<String> letterCombinations (String digits) {
         List<String> ans = new ArrayList<>();
-        if (digits.length() == 0) return ans;
-        helper(digits, 0, new StringBuilder(), ans);
+        if (digits == null || digits.length() == 0) {
+            return ans;
+        }
+        doCombination(new StringBuilder(), ans, digits);
         return ans;
-
     }
 
-    private void helper (String digits, int i,  StringBuilder cur, List<String> ans) {
-        if (digits.length() == i) {
-            ans.add(cur.toString());
+    private void doCombination (StringBuilder prefix, List<String> combination, String digits) {
+        if (prefix.length() == digits.length()) {
+            combination.add(prefix.toString());
         } else {
-            int digit = Character.getNumericValue(digits.charAt(i)); // 当前考察的数字
-            char[] curLetters = digitsToChars[digit].toCharArray(); // 当前考察的数字对应的字母集合
-
-            for (char c : curLetters) {
-                cur.append(c);
-                helper(digits, i + 1, cur, ans);
-                cur.deleteCharAt(i); // 回溯：删掉刚才用过的字母
+            int curDiggit = digits.charAt(prefix.length()) - '0';
+            for (char c : digitsToChars[curDiggit].toCharArray()) {
+                prefix.append(c);
+                doCombination(prefix,combination,digits);
+                prefix.deleteCharAt(prefix.length() - 1);
             }
         }
     }
