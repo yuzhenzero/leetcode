@@ -5,40 +5,27 @@ import java.util.List;
 
 // 257#, Easy
 public class BinaryTreePaths {
-    public List<String> binaryTreePaths (TreeNode root) {
-        List<String> ans = new ArrayList<>();
-        backtracking(root,new ArrayList<Integer>(),ans);
-        return ans;
+    List<String> ans = new ArrayList<>();
 
+    public List<String> binaryTreePaths (TreeNode root) {
+        if (root == null)
+            return ans;
+        String cur = "";
+        findPaths(root,cur);
+        return ans;
     }
 
-    private void backtracking (TreeNode root, List<Integer> values, List<String> paths) {
-        if (root == null) {
+    private void findPaths (TreeNode node, String curStr) {
+        if (node.right == null && node.left == null) {
+            curStr += node.val;
+            ans.add(curStr);
             return;
         }
-        values.add(root.val);
-        if (isLeaf(root)) {
-            paths.add(buildPath(values));
-        } else {
-            backtracking(root.left, values, paths);
-            backtracking(root.right, values, paths);
-        }
-        values.remove(values.size() - 1);
-    }
-
-    private boolean isLeaf (TreeNode root) {
-        return root.left == null && root.right == null;
-    }
-
-    private String buildPath (List<Integer> values) {
-        StringBuilder str = new StringBuilder();
-        for (int i = 0; i < values.size(); i++) {
-            str.append(values.get(i));
-            if (i != values.size() - 1) {
-                str.append("->");
-            }
-        }
-        return str.toString();
+        curStr += node.val + "->";
+        if (node.left != null)
+            findPaths(node.left, curStr);
+        if (node.right != null)
+            findPaths(node.right, curStr);
     }
 
     public static void main (String[] args) {
