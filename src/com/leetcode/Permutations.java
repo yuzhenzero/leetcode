@@ -9,26 +9,39 @@ public class Permutations {
     public List<List<Integer>> permute (int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         ArrayList<Integer> curList = new ArrayList<>();
-        for (int num : nums) {
-            curList.add(num);
-        }
-        int n = nums.length;
-        backtrack(0, curList, n, ans);
-
+        boolean[] visited = new boolean[nums.length];
+        backtrack(curList,ans,visited,nums);
         return ans;
     }
 
-    private void backtrack (int first, ArrayList<Integer> curList, int n, List<List<Integer>> ans) {
-        if (first == n) {
-            ans.add(new ArrayList<Integer>(curList));
-        }
+    /**
+     * 回溯法
+     * @param curList 当前正在处理的字符串
+     * @param permutations 排列组合结果集合
+     * @param visited 标记当前递归链已经访问过的元素
+     * @param nums 给定数组
+     */
+    private void backtrack (List<Integer> curList,
+                            List<List<Integer>> permutations,
+                            boolean[] visited,
+                            int[] nums) {
+        if (curList.size() == nums.length) {
+            permutations.add(new ArrayList<>(curList));
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                if (visited[i]) {
+                    continue;
+                }
+                visited[i] = true;
+                System.out.println(i+" before " + visited[i]);
+                curList.add(nums[i]);
+                backtrack(curList,permutations,visited,nums);
+                curList.remove(curList.size() - 1);
+                visited[i] = false;
+                System.out.println(i+" after " + visited[i]);
 
-        for (int i = first; i < n; i++) {
-            Collections.swap(curList, first, i);
-            backtrack(first + 1, curList, n, ans);
-            Collections.swap(curList, first, i); // 回溯，使数组回到原来的样子重新操作
+            }
         }
-
     }
 
     public static void main (String[] args) {
