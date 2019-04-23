@@ -1,16 +1,18 @@
 package com.leetcode;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
-// 46#, Medium
-public class Permutations {
-    public List<List<Integer>> permute (int[] nums) {
+// 47#, Medium
+public class Permutations2 {
+    public List<List<Integer>> permuteUnique (int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         ArrayList<Integer> curList = new ArrayList<>();
         boolean[] visited = new boolean[nums.length];
-        backtrack(curList,ans,visited,nums);
+        Arrays.sort(nums);
+        backtrack(curList, ans, visited, nums);
+
         return ans;
     }
 
@@ -29,12 +31,15 @@ public class Permutations {
             permutations.add(new ArrayList<>(curList));
         } else {
             for (int i = 0; i < nums.length; i++) {
+                if (i != 0 && nums[i] == nums[i - 1] && !visited[i - 1]) {
+                    continue;
+                }
                 if (visited[i]) {
                     continue;
                 }
                 visited[i] = true;
                 curList.add(nums[i]);
-                backtrack(curList,permutations,visited,nums);
+                backtrack(curList, permutations, visited, nums);
                 curList.remove(curList.size() - 1);
                 visited[i] = false;
             }
@@ -42,9 +47,9 @@ public class Permutations {
     }
 
     public static void main (String[] args) {
-        Permutations p = new Permutations();
-        int[] nums = {1, 2, 3};
-        System.out.println(p.permute(nums));
-    }
+        Permutations2 p2 = new Permutations2();
+        int[] nums = {1, 1, 2};
+        System.out.println(p2.permuteUnique(nums));
 
+    }
 }
