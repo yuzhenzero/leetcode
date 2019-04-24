@@ -7,16 +7,21 @@ import java.util.List;
 public class Subsets {
     public List<List<Integer>> subsets (int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
-        backtrack(0,new ArrayList<>(),ans,nums);
+        for (int size = 0; size <= nums.length; size++) {
+            backtrack(0,size,new ArrayList<>(),ans,nums);
+        }
         return ans;
     }
 
-    private void backtrack (int first, ArrayList<Integer> curList, List<List<Integer>> ans,int[] nums) {
-        ans.add(new ArrayList<Integer>(curList));
-        for (int i = first; i < nums.length;i++) {
-            curList.add(nums[i]);
-            backtrack(i+1,curList,ans,nums);
-            curList.remove(curList.size()-1); // 回溯，删掉用过的元素
+    private void backtrack (int start,int size, ArrayList<Integer> curList, List<List<Integer>> subsets,int[] nums) {
+        if (curList.size() == size) {
+            subsets.add(new ArrayList<>(curList));
+        } else {
+            for (int i = start; i < nums.length; i++) {
+                curList.add(nums[i]);
+                backtrack(i + 1, size, curList, subsets, nums);
+                curList.remove(curList.size() - 1);
+            }
         }
     }
 
