@@ -7,7 +7,7 @@ import java.util.List;
 public class PalindromePartitioning {
     public List<List<String>> partition(String s) {
         List<List<String>> ans = new ArrayList<>();
-        backtrack(ans, new ArrayList<String>(), s);
+        backtrack(ans, new ArrayList<>(), s);
         return ans;
     }
 
@@ -18,7 +18,7 @@ public class PalindromePartitioning {
             partitions.add(new ArrayList<>(curList));
         } else {
             for (int i = 0; i < s.length(); i++) {
-                if (isPalindrome(s, 0, i)) {
+                if (isPalindrome(s, i)) {
                     curList.add(s.substring(0, i + 1));
                     backtrack(partitions, curList, s.substring(i + 1));
                     curList.remove(curList.size() - 1);
@@ -27,7 +27,8 @@ public class PalindromePartitioning {
         }
     }
 
-    private boolean isPalindrome (String s, int start, int end) {
+    private boolean isPalindrome (String s, int end) {
+        int start = 0;
         while (start < end) {
             if (s.charAt(start++) != s.charAt(end--)) {
                 return false;
