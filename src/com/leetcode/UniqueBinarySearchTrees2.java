@@ -10,6 +10,9 @@ import java.util.List;
  **/
 public class UniqueBinarySearchTrees2 {
     public List<TreeNode> generateTrees (int n) {
+        if (n == 0) {
+            return new LinkedList<>();
+        }
         return generateSubtrees(1, n);
     }
 
