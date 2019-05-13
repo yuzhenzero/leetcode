@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Combinations",
+            "request": "launch",
+            "mainClass": "com.leetcode.Combinations",
+            "projectName": "LeetCode_bceb143a"
+        }
+    ]
+}
