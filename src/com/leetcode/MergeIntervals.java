@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import com.leetcode.repository.Interval;
+
 import java.util.*;
 
 // 56#, Medium

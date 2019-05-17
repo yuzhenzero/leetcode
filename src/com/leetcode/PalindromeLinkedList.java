@@ -1,5 +1,8 @@
 package com.leetcode;
 
+import com.leetcode.repository.ListNode;
+import com.leetcode.repository.ListNodeWrapper;
+
 /**
  * @author Yu Zhen
  **/

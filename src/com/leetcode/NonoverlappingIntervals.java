@@ -2,6 +2,8 @@ package com.leetcode;
 
 // 435#, Medium
 
+import com.leetcode.repository.Interval;
+
 import java.util.Arrays;
 import java.util.Comparator;
 

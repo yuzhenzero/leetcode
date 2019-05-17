@@ -1,5 +1,8 @@
 package com.leetcode;
 
+import com.leetcode.repository.TreeNode;
+import com.leetcode.repository.TreeNodeWrapper;
+
 // 230#, Medium
 public class KthSmallestElementinaBST {
     public int kthSmallest (TreeNode root, int k) {

@@ -2,6 +2,9 @@ package com.leetcode;
 
 // 160#, Easy
 
+import com.leetcode.repository.ListNode;
+import com.leetcode.repository.ListNodeWrapper;
+
 public class IntersectionofTwoLinkedLists {
     public ListNode getIntersectionNode (ListNode headA, ListNode headB) {
         if (headA == null || headB == null) return null;

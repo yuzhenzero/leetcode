@@ -1,10 +1,6 @@
-package com.leetcode;
+package com.leetcode.repository;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-class ListNodeWrapper {
+public class ListNodeWrapper {
     /**
      * Definition for singly-linked list.
      * public class ListNode {

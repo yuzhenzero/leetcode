@@ -1,5 +1,8 @@
 package com.leetcode;
 
+import com.leetcode.repository.ListNode;
+import com.leetcode.repository.ListNodeWrapper;
+
 // 2#, Medium
 public class AddTwoNumbers {
     public ListNode addTwoNumbers (ListNode l1, ListNode l2) {

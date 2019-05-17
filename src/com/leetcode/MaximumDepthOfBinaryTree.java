@@ -1,5 +1,8 @@
 package com.leetcode;
 
+import com.leetcode.repository.TreeNode;
+import com.leetcode.repository.TreeNodeWrapper;
+
 // 104#, Easy
 public class MaximumDepthOfBinaryTree {
     // 递归法

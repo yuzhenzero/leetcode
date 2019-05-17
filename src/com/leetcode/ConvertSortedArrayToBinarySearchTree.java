@@ -1,5 +1,8 @@
 package com.leetcode;
 
+import com.leetcode.repository.TreeNode;
+import com.leetcode.repository.TreeNodeWrapper;
+
 // 108#, Easy
 public class ConvertSortedArrayToBinarySearchTree {
     public TreeNode sortedArrayToBST(int[] nums) {

@@ -1,5 +1,8 @@
 package com.leetcode;
 
+import com.leetcode.repository.ListNode;
+import com.leetcode.repository.ListNodeWrapper;
+
 // 328#, Medium
 public class OddEvenLinkedList {
     public ListNode oddEvenList (ListNode head) {

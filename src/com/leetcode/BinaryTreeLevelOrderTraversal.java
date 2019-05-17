@@ -1,5 +1,8 @@
 package com.leetcode;
 
+import com.leetcode.repository.TreeNode;
+import com.leetcode.repository.TreeNodeWrapper;
+
 import java.util.*;
 
 // 102#, Medium
@@ -11,7 +14,7 @@ public class BinaryTreeLevelOrderTraversal {
         List<Integer> list = new ArrayList<>();
         if (root == null)
             return ans;
-        ((LinkedList<TreeNode>) q).add(root);
+        q.add(root);
         list.add(root.val);
         ans.add(list);
         while (q.size() > 0) {
@@ -19,8 +22,8 @@ public class BinaryTreeLevelOrderTraversal {
             int s = q.size();
             for (int i = 0; i < s; i++) {
                 TreeNode tn = q.remove();
-                if (tn.left != null) ((LinkedList<TreeNode>) q).add(tn.left);
-                if (tn.right != null) ((LinkedList<TreeNode>) q).add(tn.right);
+                if (tn.left != null) q.add(tn.left);
+                if (tn.right != null) q.add(tn.right);
                 if (tn.left != null) list.add(tn.left.val);
                 if (tn.right != null) list.add(tn.right.val);
             }
