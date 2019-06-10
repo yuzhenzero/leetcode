@@ -12,7 +12,7 @@ import com.leetcode.repository.TreeNodeWrapper;
 public class SubtreeofAnotherTree {
     public boolean isSubtree(TreeNode s, TreeNode t) {
         if (s == null) {
-            return true;
+            return false;
         }
         return isSubtreeWithRoot(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t);
     }
@@ -21,7 +21,7 @@ public class SubtreeofAnotherTree {
         if (s == null && t == null) return true;
         if (s == null || t == null) return false;
         if (s.val != t.val) return false;
-        return isSubtreeWithRoot(s.left, t) || isSubtreeWithRoot(s.right, t);
+        return isSubtreeWithRoot(s.left, t.left) && isSubtreeWithRoot(s.right, t.right);
     }
 
     public static void main (String[] args) {
