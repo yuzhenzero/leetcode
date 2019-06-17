@@ -1,15 +1,10 @@
 package com.leetcode;
+
+import com.leetcode.repository.ListNode;
+
 // 83#, Easy
 public class RemoveDuplicatesformSortedList {
-    public class ListNode {
-        int val;
-        ListNode next;
 
-        ListNode(int x)
-        {
-            val = x;
-        }
-    }
 
     public ListNode deleteDuplicates(ListNode head)
     {
