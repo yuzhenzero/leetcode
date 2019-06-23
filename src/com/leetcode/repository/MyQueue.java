@@ -4,7 +4,7 @@ import java.util.Stack;
 
 /**
  * 2019-06-23 13:26
- *
+ * 232, Easy
  * @author Yu Zhen
  **/
 public class MyQueue {
