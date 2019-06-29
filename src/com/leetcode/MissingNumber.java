@@ -28,9 +28,17 @@ public class MissingNumber {
         return sum + nums.length;
     }
 
+    public int missingNumber_3 (int[] nums) {
+        int missing = nums.length;
+        for (int i = 0; i < nums.length; i++) {
+            missing = missing ^ i ^ nums[i];
+        }
+        return missing;
+    }
+
     public static void main (String[] args) {
         MissingNumber mn = new MissingNumber();
-        int[] nums = {3,0,1};
-        System.out.println(mn.missingNumber_2(nums));
+        int[] nums = {3, 0, 1};
+        System.out.println(mn.missingNumber_3(nums));
     }
 }
