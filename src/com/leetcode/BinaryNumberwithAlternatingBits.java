@@ -2,7 +2,7 @@ package com.leetcode;
 
 /**
  * 2019-07-01 16:52
- *
+ * 693, Easy
  * @author Yu Zhen
  **/
 public class BinaryNumberwithAlternatingBits {
