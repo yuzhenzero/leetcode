@@ -16,10 +16,21 @@ public class ClimbingStairs {
         return step[n];
     }
 
-
+    public int climbStairs2 (int n) {
+        if (n <= 2) {
+            return n;
+        }
+        int pre1 = 2, pre2 = 1;
+        for (int i = 2; i < n; i++) {
+            int cur = pre1 + pre2;
+            pre2 = pre1;
+            pre1 = cur;
+        }
+        return pre1;
+    }
 
     public static void main (String[] args) {
         ClimbingStairs cs = new ClimbingStairs();
-        System.out.println(cs.climbStairs(5));
+        System.out.println(cs.climbStairs2(5));
     }
 }
