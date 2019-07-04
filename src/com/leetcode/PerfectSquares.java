@@ -7,6 +7,13 @@ import java.util.Queue;
 
 // 279#, Medium
 public class PerfectSquares {
+
+    /**
+     * 使用 BFS
+     *
+     * @param n 目标数
+     * @return 平方数个数
+     */
     public int numSquares (int n) {
         List<Integer> squares =  generateSquares(n);
         Queue<Integer> queue = new LinkedList<>();
@@ -38,6 +45,22 @@ public class PerfectSquares {
         return n;
     }
 
+    public int numSquares2 (int n) {
+        List<Integer> squares = generateSquares(n);
+        int[] dp = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            int min = Integer.MAX_VALUE;
+            for (Integer square : squares) {
+                if (square > i) {
+                    break;
+                }
+                min = Math.min(min, dp[i - square] + 1);
+            }
+            dp[i] = min;
+        }
+        return dp[n];
+    }
+
     /**
      * 生成小于 n 的平方数的序列
      * @param n 目标数
@@ -58,7 +81,7 @@ public class PerfectSquares {
     public static void main (String[] args) {
         PerfectSquares ps = new PerfectSquares();
         int n = 12;
-        System.out.println(ps.numSquares(n));
+        System.out.println(ps.numSquares2(n));
 
     }
 }
