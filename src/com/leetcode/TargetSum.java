@@ -2,7 +2,7 @@ package com.leetcode;
 
 /**
  * 2019-07-23 10:18
- *
+ * 494, Medium
  * @author Yu Zhen
  **/
 public class TargetSum {
