@@ -6,10 +6,11 @@ public class CountPrimes {
         boolean[] not_prime = new boolean[n];
         int count = 0;
         for (int i = 2; i < n; i++) {
-            if (!not_prime[i])
-                count++;
-            for (int j = 2; i * j < n; j++) {
-                not_prime[i*j] = true;
+            if (not_prime[i])
+                continue;
+            count++;
+            for (int j = i * i; j < n; j += i) {
+                not_prime[j] = true;
             }
         }
         return count;
