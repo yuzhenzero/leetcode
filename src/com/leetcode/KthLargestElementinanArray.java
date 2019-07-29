@@ -1,32 +1,57 @@
 package com.leetcode;
 
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
 // 215#, Medium
 public class KthLargestElementinanArray {
+
+    // 调用排序方法
     public int findKthLargest (int[] nums, int k) {
-        int n = nums.length;
-        int p = quickSelect(nums, 0, n - 1, n - k + 1);
-        return nums[p];
+        Arrays.sort(nums);
+        return nums[nums.length - k];
     }
 
-    // 此处的 k 是按从小到大排的顺序
-    // return the index of the kth smallest number
-    private int quickSelect (int[] nums, int lo, int hi, int k) {
-        int i = lo;
-        int j = hi;
-        int pivot = nums[hi];
-        // < pivot 放左边
-        // >= pivot 放右边
-        while (i < j) {
-            if (nums[i++] > pivot) swap(nums, --i, --j);
+    // 堆排序法
+    public int findKthLargest1 (int[] nums, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>(); // 默认是小顶堆
+        for (int num : nums) {
+            pq.add(num);
+            if (pq.size() > k) {
+                pq.poll();
+            }
         }
-        swap(nums, i, hi); // 将 pivot 放入正确位置
+        return pq.peek();
+    }
 
-        // 计算 pivot 在数组中的位置
-        int m = i - lo + 1;
+    // 快速选择法
+    public int findKthLargest2 (int[] nums, int k) {
+        k = nums.length - k;
+        int l = 0, h = nums.length - 1;
+        while (l < h) {
+            int j = partition(nums, l, h);
+            if (j == k) {
+                break;
+            } else if (j < k) {
+                l = j + 1;
+            } else {
+                h = j - 1;
+            }
+        }
+        return nums[k];
+    }
 
-        if (m == k) return i;
-        else if (m > k) return quickSelect(nums, lo, i - 1, k);
-        else return quickSelect(nums, i + 1, hi, k - m);
+    private int partition (int[] nums, int lo, int hi) {
+        int pivot = lo;
+        int index = pivot + 1;
+        for (int i = index; i <= hi; i++) {
+            if (nums[i] < nums[pivot]) {
+                swap(nums, i, index);
+                index++;
+            }
+        }
+        swap(nums, pivot, index - 1);
+        return index - 1;
     }
 
     private void swap (int[] nums, int i, int j) {
@@ -38,7 +63,7 @@ public class KthLargestElementinanArray {
     public static void main (String[] args) {
         KthLargestElementinanArray klea = new KthLargestElementinanArray();
         int[] nums = {3, 2, 1, 5, 6, 4};
-        System.out.println(klea.findKthLargest(nums, 2));
+        System.out.println(klea.findKthLargest1(nums, 2));
     }
 
 
