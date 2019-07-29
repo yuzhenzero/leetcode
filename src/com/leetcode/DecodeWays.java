@@ -24,7 +24,7 @@ public class DecodeWays {
                 continue;
             }
             int two = Integer.valueOf(s.substring(i - 2, i));
-            if (two < 26) {
+            if (two <= 26) {
                 dp[i] = dp[i] + dp[i - 2];
             }
         }
