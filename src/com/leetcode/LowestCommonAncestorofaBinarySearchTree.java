@@ -19,6 +19,5 @@ public class LowestCommonAncestorofaBinarySearchTree {
         LowestCommonAncestorofaBinarySearchTree lowestCommonAncestorofaBinarySearchTree =
                 new LowestCommonAncestorofaBinarySearchTree();
         TreeNodeWrapper.stringToTreeNode("[6,2,8,0,4,7,9,null,null,3,5]");
-
     }
 }
