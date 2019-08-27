@@ -14,8 +14,18 @@ public class NumberComplement {
         return num ^ mask;
     }
 
+    public int findComplement2 (int num) {
+        int mask = num;
+        mask |= mask >> 1;
+        mask |= mask >> 2;
+        mask |= mask >> 4;
+        mask |= mask >> 8;
+        mask |= mask >> 16;
+        return (mask ^ num);
+    }
+
     public static void main (String[] args) {
         NumberComplement test = new NumberComplement();
-        System.out.println(test.findComplement(5));
+        System.out.println(test.findComplement2(5));
     }
 }
